@@ -3,12 +3,13 @@ import {connect} from 'react-redux'
 
 import Product from "../components/Product";
 
-class ProductList extends Component {
 
+class ProductList extends Component {
     render() {
+      console.log("this.props", this.props)
         const products = this.props.products.map(thing => {
           return (
-            <li>
+            <li key={thing.id}>
               <img src={thing.image}></img>
               <h3>{thing.title}</h3>
               <h4>{thing.price}</h4>
@@ -32,17 +33,19 @@ class ProductList extends Component {
 // - `overTwenty`
 // - `all` or the default
 const mapStateToProps = function(state) {
-    let products = state.products;
     // complete the `if else` statement including conditions and `products` value
     if (state.filter === 'underTwenty') {
-      return {products: products}
+      console.log("Returning products under $20.")
+      // return {products: products}
     } else if (state.filter === 'overTwenty') {
-      return {products: products}
+      console.log("Returning products over $20.")
+      // return {products: products}
     } else {
-      return {products: products}
+      console.log("Returning All")
+      console.log(state.products)
+      return {products: state.products}
     }
-    console.log(products)
-    return {products: products}
+    // return {products: products}
 }
 
 export default connect(mapStateToProps)(ProductList);
