@@ -2,7 +2,7 @@ export const FILTER_PRODUCTS = 'FILTER_PRODUCTS';
 
 // export const filterProducts = function (filterType) {
 //   return {
-//     type: FILTER_PRODUCTS,
+//     type: "FILTER_PRODUCTS",
 //     payload: filterType
 //   }
 // }
@@ -16,4 +16,4 @@ const makeActionCreator = function (actionType) {
   }
 }
 
-export const filterProducts = makeActionCreator(FILTER_PRODUCTS);
+export const filterProducts = makeActionCreator("FILTER_PRODUCTS");

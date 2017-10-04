@@ -36,7 +36,11 @@ class FilterProducts extends Component {
 }
 
 const mapStateToProps = function(state) {
-    return {filter: state.filter}
+    // return {filter: state.filter}
+    console.log(state)
+    return{
+      filter: state.filter
+    }
 }
 
 // Review the `filterProducts` function
