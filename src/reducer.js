@@ -20,7 +20,18 @@ const reducer = function(state = initialState, action) {
     // to update the the state property describing current state of filterable data
     // provided by the `action.payload`
     if(action.type === "FILTER_PRODUCTS"){
-      return action.payload
+      const newstate = {}
+      newstate.filter = action.payload
+      newstate.products = products.filter(product => {
+        if (newstate.filter === "underTwenty"){
+          return parseFloat(product.price, 10) < 20
+        } else if (newstate.filter === "overTwenty"){
+          return parseFloat(product.price, 10) > 20
+        } else {
+          return true
+        }
+      })
+      return newstate
     }
     return state
 }

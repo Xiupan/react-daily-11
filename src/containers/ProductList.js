@@ -32,20 +32,10 @@ class ProductList extends Component {
 // - `underTwenty`
 // - `overTwenty`
 // - `all` or the default
-const mapStateToProps = function(state) {
-    // complete the `if else` statement including conditions and `products` value
-    if (state.filter === 'underTwenty') {
-      console.log("Returning products under $20.")
-      // return {products: products}
-    } else if (state.filter === 'overTwenty') {
-      console.log("Returning products over $20.")
-      // return {products: products}
-    } else {
-      console.log("Returning All")
-      console.log(state.products)
-      return {products: state.products}
-    }
-    // return {products: products}
+const mapStateToProps = (state) => {
+  return {
+    products: state.products
+  }
 }
 
 export default connect(mapStateToProps)(ProductList);
